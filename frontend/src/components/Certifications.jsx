@@ -36,12 +36,16 @@ const Certifications = () => {
         },
         {
             title: 'Code Unnati Program',
-            courseName: 'Emerging Technologies Course',
-            org: 'Edunet Foundation',
-            date: 'Sep 2024 – Apr 2025',
-            desc: 'Covered emerging technologies including Machine Learning, Internet of Things (IoT), and Deep Learning.',
+            courseName: 'Advance Course on Emerging Technologies',
+            org: 'Edunet Foundation & SAP',
+            credentialId: 'CU25_20338',
+            date: '2024 – 2025',
+            desc: 'Successfully completed advanced training in Emerging Technologies covering Machine Learning, Internet of Things (IoT), Deep Learning, Computer Vision, and SAP ABAP on Business Technology Platform (BTP).',
             icon: 'fas fa-graduation-cap',
-            tags: ['Machine Learning', 'IoT', 'Deep Learning']
+            certificateUrl: '/certificates/Ayush%20Anilkumar%20Trikmani_AC.pdf',
+            certificateName: 'Ayush_Anilkumar_Trikmani_Code_Unnati_Certificate.pdf',
+            isPdf: true,
+            tags: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'IoT', 'SAP BTP']
         }
     ];
 
@@ -134,11 +138,19 @@ const Certifications = () => {
                             </button>
                         </div>
                         <div className="cert-modal-body">
-                            <img 
-                                src={selectedCert.certificateUrl} 
-                                alt={`${selectedCert.title} Certificate`}
-                                className="cert-modal-img"
-                            />
+                            {selectedCert.isPdf || selectedCert.certificateUrl?.endsWith('.pdf') ? (
+                                <iframe 
+                                    src={selectedCert.certificateUrl} 
+                                    title={`${selectedCert.title} Certificate`}
+                                    className="cert-modal-iframe"
+                                />
+                            ) : (
+                                <img 
+                                    src={selectedCert.certificateUrl} 
+                                    alt={`${selectedCert.title} Certificate`}
+                                    className="cert-modal-img"
+                                />
+                            )}
                         </div>
                         <div className="cert-modal-footer">
                             {selectedCert.credentialId && (
@@ -149,7 +161,7 @@ const Certifications = () => {
                             <div className="cert-modal-btn-group">
                                 <a 
                                     href={selectedCert.certificateUrl} 
-                                    download={selectedCert.certificateName || 'certificate.jpg'} 
+                                    download={selectedCert.certificateName || 'certificate'} 
                                     className="cert-modal-action-btn"
                                 >
                                     <i className="fas fa-download"></i> Download
@@ -160,7 +172,7 @@ const Certifications = () => {
                                     rel="noopener noreferrer" 
                                     className="cert-modal-action-btn primary"
                                 >
-                                    <i className="fas fa-external-link-alt"></i> Open Full Image
+                                    <i className="fas fa-external-link-alt"></i> Open Full Document
                                 </a>
                             </div>
                         </div>
