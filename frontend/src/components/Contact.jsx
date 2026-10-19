@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import StarfieldButton from './StarfieldButton';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -69,7 +70,7 @@ const Contact = () => {
             } else {
                 triggerToast('Error', result.message || 'Failed to send email. Check your Web3Forms key.', false);
             }
-        } catch (error) {
+        } catch {
             triggerToast('Connection Error', 'Failed to connect to the mail server. Please try again.', false);
         }
     };
@@ -148,7 +149,19 @@ const Contact = () => {
                                 required
                             ></textarea>
                         </div>
-                        <button type="submit" className="btn">Send Message</button>
+                        <StarfieldButton 
+                            type="submit" 
+                            style={{ marginTop: '1.4rem' }}
+                            addIcon={true}
+                            icon={{
+                                type: "symbol",
+                                symbol: "✦",
+                                size: 16,
+                                side: "right"
+                            }}
+                        >
+                            Send Message
+                        </StarfieldButton>
                     </form>
                 </div>
             </div>

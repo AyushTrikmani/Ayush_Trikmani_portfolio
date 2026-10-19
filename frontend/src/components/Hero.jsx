@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import StarfieldButton from './StarfieldButton';
 
 const ROLES = [
     'MERN Stack Developer',
@@ -97,9 +98,21 @@ const Hero = () => {
                             </a>
                         </div>
 
-                        <a href="/Ayush_Trikmani_Resume.pdf" className="btn download-btn" download="Ayush_Trikmani_Resume.pdf">
+                        <StarfieldButton 
+                            link="/Ayush_Trikmani_Resume.pdf" 
+                            download="Ayush_Trikmani_Resume.pdf"
+                            className="download-btn"
+                            style={{ marginTop: '1.5rem' }}
+                            addIcon={true}
+                            icon={{
+                                type: "symbol",
+                                symbol: "↓",
+                                size: 18,
+                                side: "right"
+                            }}
+                        >
                             Download Resume
-                        </a>
+                        </StarfieldButton>
                     </div>
 
                     {/* RIGHT: profile image */}

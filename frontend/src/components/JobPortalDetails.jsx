@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import StarfieldButton from './StarfieldButton';
 
 const JobPortalDetails = ({ onBack }) => {
     // Scroll to top on mount
@@ -166,9 +167,18 @@ const JobPortalDetails = ({ onBack }) => {
                     </div>
                     {/* Back Button */}
                     <div style={{ textAlign: 'center', marginTop: '5rem', marginBottom: '2rem' }}>
-                        <button className="btn" onClick={onBack}>
-                            <i className="fas fa-arrow-left"></i> Back to Portfolio
-                        </button>
+                        <StarfieldButton 
+                            onClick={onBack}
+                            addIcon={true}
+                            icon={{
+                                type: "symbol",
+                                symbol: "←",
+                                size: 16,
+                                side: "left"
+                            }}
+                        >
+                            Back to Portfolio
+                        </StarfieldButton>
                     </div>
                 </div>
             </div>

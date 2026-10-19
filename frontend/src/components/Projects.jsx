@@ -1,3 +1,5 @@
+import StarfieldButton from './StarfieldButton';
+
 const Projects = ({ onViewDetails }) => {
     const projectsList = [
         {
@@ -61,22 +63,34 @@ const Projects = ({ onViewDetails }) => {
                                     ))}
                                 </div>
                                 {project.isModal ? (
-                                    <button 
-                                        className="btn" 
+                                    <StarfieldButton 
                                         onClick={onViewDetails}
-                                        style={{ border: 'none' }}
+                                        style={{ marginTop: '1.2rem' }}
+                                        addIcon={true}
+                                        icon={{
+                                            type: "symbol",
+                                            symbol: "→",
+                                            size: 16,
+                                            side: "right"
+                                        }}
                                     >
                                         {project.btnText}
-                                    </button>
+                                    </StarfieldButton>
                                 ) : (
-                                    <a 
-                                        href={project.link} 
-                                        className="btn" 
-                                        target="_blank" 
-                                        rel="noreferrer"
+                                    <StarfieldButton 
+                                        link={project.link} 
+                                        newTab={true}
+                                        style={{ marginTop: '1.2rem' }}
+                                        addIcon={true}
+                                        icon={{
+                                            type: "symbol",
+                                            symbol: "↗",
+                                            size: 16,
+                                            side: "right"
+                                        }}
                                     >
                                         {project.btnText}
-                                    </a>
+                                    </StarfieldButton>
                                 )}
                             </div>
                         </div>
